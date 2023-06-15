@@ -1,17 +1,19 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'none',
+  target: 'web',
   entry: './scripts/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules) | (dist)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -21,5 +23,4 @@ module.exports = {
       },
     ],
   },
-  target: 'node',
 };
