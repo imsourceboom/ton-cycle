@@ -1,10 +1,10 @@
-const shell = require('shelljs');
 const { dateConvertor } = require('./dateConvertor');
 
+(async () => {
+	const response = await fetch("http://141.164.37.205:5000/api/getconfig34");
+	const jsonData = await response.json();
+	const utimeUntil = jsonData.getconfig34;
 const oneCycle = 65536;
-const utimeUntil = Number(
-  shell.exec('bash ~/ton-scripts/scripts/getconfig34.sh').stdout
-);
 const electionsStartBefore = 32768;
 const electionsEndBefore = 8192;
 const electionCycle = 24576;
@@ -47,20 +47,21 @@ console.log(dateConvertor(nextValidateEnd));
 console.log(dateConvertor(currentUnixTimestamp));
 console.log(dateConvertor(nowtimeGapElecStart));
 
-const currentElecStartH1 = document.querySelector(
-  'article#current-election div.start h1'
-);
-const currentElecEndH1 = document.querySelector(
-  'article#current-election div.end h1'
-);
-const nextElecStartH1 = document.querySelector(
-  'article#next-election div.start h1'
-);
-const nextElecEndH1 = document.querySelector(
-  'article#next-election div.end h1'
-);
-
-currentElecStartH1.textContent = latestElectionStart;
-currentElecEndH1.textContent = latestElectionEnd;
-nextElecStartH1.textContent = nextElectionStart;
-nextElecEndH1.textContent = nextElectionEnd;
+//const currentElecStartH1 = document.querySelector(
+//  'article#current-election div.start h1'
+//);
+//const currentElecEndH1 = document.querySelector(
+//  'article#current-election div.end h1'
+//);
+//const nextElecStartH1 = document.querySelector(
+//  'article#next-election div.start h1'
+//);
+//const nextElecEndH1 = document.querySelector(
+//  'article#next-election div.end h1'
+//);
+//
+//currentElecStartH1.textContent = latestElectionStart;
+//currentElecEndH1.textContent = latestElectionEnd;
+//nextElecStartH1.textContent = nextElectionStart;
+//nextElecEndH1.textContent = nextElectionEnd;
+})();
