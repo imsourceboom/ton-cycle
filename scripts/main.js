@@ -34,7 +34,7 @@ const latestValidateEnd = utimeUntil;
 const nextValidateStart = latestValidateEnd;
 const nextValidateEnd = latestValidateStart + oneCycle;
 const nowtimeGapElecStart = currentUnixTimestamp - latestElectionStart;
-current;
+
 console.log(dateConvertor(utimeUntil));
 console.log(dateConvertor(latestElectionStart));
 console.log(dateConvertor(latestElectionEnd));
