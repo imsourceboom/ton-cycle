@@ -25,24 +25,42 @@ const currentUnixTimestamp = Math.floor(+new Date() / 1000);
 // - Next Elections Start time
 // utime_until + one cycle(65536) - elections_start_before
 
-const LatestElectionStart = utimeUntil - electionsStartBefore;
-const LatestElectionEnd = utimeUntil - electionsEndBefore;
-const NextElectionStart = LatestElectionStart + oneCycle;
-const NextElectionEnd = NextElectionStart + electionCycle;
-const LatestValidateStart = utimeUntil - oneCycle;
-const LatestValidateEnd = utimeUntil;
-const NextValidateStart = LatestValidateEnd;
-const NextValidateEnd = LatestValidateStart + oneCycle;
-const NowtimeGapElecStart = currentUnixTimestamp - LatestElectionStart;
-
+const latestElectionStart = utimeUntil - electionsStartBefore;
+const latestElectionEnd = utimeUntil - electionsEndBefore;
+const nextElectionStart = latestElectionStart + oneCycle;
+const nextElectionEnd = nextElectionStart + electionCycle;
+const latestValidateStart = utimeUntil - oneCycle;
+const latestValidateEnd = utimeUntil;
+const nextValidateStart = latestValidateEnd;
+const nextValidateEnd = latestValidateStart + oneCycle;
+const nowtimeGapElecStart = currentUnixTimestamp - latestElectionStart;
+current;
 console.log(dateConvertor(utimeUntil));
-console.log(dateConvertor(LatestElectionStart));
-console.log(dateConvertor(LatestElectionEnd));
-console.log(dateConvertor(NextElectionStart));
-console.log(dateConvertor(NextElectionEnd));
-console.log(dateConvertor(LatestValidateStart));
-console.log(dateConvertor(LatestValidateEnd));
-console.log(dateConvertor(NextValidateStart));
-console.log(dateConvertor(NextValidateEnd));
+console.log(dateConvertor(latestElectionStart));
+console.log(dateConvertor(latestElectionEnd));
+console.log(dateConvertor(nextElectionStart));
+console.log(dateConvertor(nextElectionEnd));
+console.log(dateConvertor(latestValidateStart));
+console.log(dateConvertor(latestValidateEnd));
+console.log(dateConvertor(nextValidateStart));
+console.log(dateConvertor(nextValidateEnd));
 console.log(dateConvertor(currentUnixTimestamp));
-console.log(dateConvertor(NowtimeGapElecStart));
+console.log(dateConvertor(nowtimeGapElecStart));
+
+const currentElecStartH1 = document.querySelector(
+  'article#current-election div.start h1'
+);
+const currentElecEndH1 = document.querySelector(
+  'article#current-election div.end h1'
+);
+const nextElecStartH1 = document.querySelector(
+  'article#next-election div.start h1'
+);
+const nextElecEndH1 = document.querySelector(
+  'article#next-election div.end h1'
+);
+
+currentElecStartH1.textContent = latestElectionStart;
+currentElecEndH1.textContent = latestElectionEnd;
+nextElecStartH1.textContent = nextElectionStart;
+nextElecEndH1.textContent = nextElectionEnd;
